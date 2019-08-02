@@ -20,24 +20,34 @@ android {
         }
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
+    signingConfigs {
+        release {
+            storeFile file(KEY_PATH)
+            storePassword KEY_PASS
+            keyAlias ALIAS_NAME
+            keyPassword ALIAS_PASS
+        }
+    }
     dexOptions {
         preDexLibraries true
         javaMaxHeapSize '4g'
         dexInProcess true
         maxProcessCount 2
     }
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     buildTypes {
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.release
         }
         release {
             minifyEnabled true
             zipAlignEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     packagingOptions {
@@ -84,4 +94,9 @@ dependencies {
     api deps.kotlin.anko
     api deps.kotlin.anko_commons
     api deps.kotlin.ktx
+
+    api deps.gaode.map
+    api deps.gaode.location
+    api deps.gaode.search
+
 }

@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), AdpHome.MyRecycleItemClick {
         mListData.clear()
         mListData.add("")
         mListData.add("Map,List,Bean")
-        mListData.add("Recycle列表3")
+        mListData.add("地图")
         mListData.add("Recycle列表4")
         mListData.add("Recycle列表5")
         mListData.add("Recycle列表6")
@@ -52,6 +52,10 @@ class MainActivity : AppCompatActivity(), AdpHome.MyRecycleItemClick {
         0->{}
         1->{
             val intent= Intent(this,ActMapListBean::class.java)
+            startActivity(intent)
+        }
+        2->{
+            val intent= Intent(this,ActMapHome::class.java)
             startActivity(intent)
         }
         else -> {

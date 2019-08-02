@@ -156,6 +156,13 @@
     kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin_version"
     deps.kotlin = kotlin
 
+    def gaode=[:]
+    gaode.map="com.amap.api:3dmap:6.0.1"
+    gaode.location="com.amap.api:location:latest.integration"
+    gaode.search="com.amap.api:search:5.7.0"
+    deps.gaode=gaode
+
+
     def glide = [:]
     glide.root = "com.github.bumptech.glide:glide:$versions.glide"
     deps.glide = glide
